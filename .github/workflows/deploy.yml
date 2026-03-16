@@ -1,0 +1,52 @@
+name: Deploy Flutter Portfolio
+
+on:
+  push:
+    branches:
+      - master   # runs every time you push to master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1 — Checkout your code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2 — Install Flutter
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+
+      # 3 — Install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 4 — Build Flutter Web
+      - name: Build Flutter Web
+        run: flutter build web --release --base-href "/portfolio_web/"
+
+      # 5 — Add .nojekyll so GitHub Pages serves _flutter assets correctly
+      - name: Add .nojekyll
+        run: touch build/web/.nojekyll
+
+      # 6 — Copy build output to /docs
+      - name: Copy build to docs
+        run: |
+          rm -rf docs
+          cp -r build/web docs
+
+      # 7 — Commit and push docs/ back to master
+      - name: Commit and push docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Auto-deploy: update portfolio build"
+          git push

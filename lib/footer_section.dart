@@ -24,7 +24,7 @@ class FooterSection extends StatelessWidget {
       await launchUrl(githubUri, mode: LaunchMode.externalApplication);
     }
   }
-
+//
   void _launchLinkedIn() async {
     final Uri linkedInUri = Uri.parse('https://linkedin.com/in/wogood-wael-695209241');
     if (await canLaunchUrl(linkedInUri)) {

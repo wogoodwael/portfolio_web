@@ -10,7 +10,6 @@ class FooterSection extends StatelessWidget {
     final Uri emailUri = Uri(
       scheme: 'mailto',
       path: 'wogoodwael@gmail.com',
-    
     );
     if (await canLaunchUrl(emailUri)) {
       await launchUrl(emailUri);
@@ -23,11 +22,16 @@ class FooterSection extends StatelessWidget {
       await launchUrl(githubUri, mode: LaunchMode.externalApplication);
     }
   }
-//
+
+ 
   void _launchLinkedIn() async {
-    final Uri linkedInUri = Uri.parse('https://linkedin.com/in/wogood-wael-695209241');
+    // Try using the correct URL format for LinkedIn profile
+    final Uri linkedInUri = Uri.parse('https://www.linkedin.com/in/wogood-wael-695209241');
+
     if (await canLaunchUrl(linkedInUri)) {
       await launchUrl(linkedInUri, mode: LaunchMode.externalApplication);
+    } else {
+   
     }
   }
 

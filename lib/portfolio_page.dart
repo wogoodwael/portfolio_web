@@ -29,8 +29,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
       appBar: PortfolioNavBar(scrollController: _scrollController),
       body: SingleChildScrollView(
         controller: _scrollController,
-        child: Column(
-          children: const [
+        child: const Column(
+          children: [
             HeroSection(),
             AboutSection(),
             SkillsSection(),

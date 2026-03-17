@@ -10,8 +10,7 @@ class FooterSection extends StatelessWidget {
     final Uri emailUri = Uri(
       scheme: 'mailto',
       path: 'wogoodwael@gmail.com',
-      // you can add subject and body if you want
-      // queryParameters: {'subject': 'Let\'s Work Together'}
+    
     );
     if (await canLaunchUrl(emailUri)) {
       await launchUrl(emailUri);

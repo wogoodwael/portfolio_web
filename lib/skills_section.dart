@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/app_theme.dart';
 import 'package:flutter_portfolio/common_widgets.dart';
 import 'package:flutter_portfolio/portfolio_data.dart';
+import 'package:flutter_portfolio/widgets/skill_bar.dart';
 
 class SkillsSection extends StatelessWidget {
   const SkillsSection({super.key});

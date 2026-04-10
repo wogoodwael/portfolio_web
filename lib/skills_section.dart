@@ -22,15 +22,15 @@ class SkillsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FadeSlideIn(child: SectionLabel('Skills')),
+          const FadeSlideIn(child: SectionLabel('Skills')),
           const SizedBox(height: 16),
-          FadeSlideIn(
-            delay: const Duration(milliseconds: 100),
+          const FadeSlideIn(
+            delay: Duration(milliseconds: 100),
             child: Text('What I Work With', style: AppTheme.displayMedium),
           ),
           const SizedBox(height: 12),
-          FadeSlideIn(
-            delay: const Duration(milliseconds: 150),
+          const FadeSlideIn(
+            delay: Duration(milliseconds: 150),
             child: Text(
               'Technologies, tools, and practices I use to build great apps.',
               style: AppTheme.bodyLarge,
@@ -42,7 +42,7 @@ class SkillsSection extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxis,
-              childAspectRatio: isMobile ? 1.4 : 1.5,
+              childAspectRatio: isMobile ? 1 : 1.5,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,
             ),
